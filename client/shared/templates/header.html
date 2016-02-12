@@ -1,0 +1,25 @@
+<template name="header">
+   <header>
+       <div class="navbar-fixed">
+           <nav>
+               <div class="nav-wrapper deep-purple darken-2">
+                 <a href="/" class="brand-logo">
+                 <img src="images/linux.png" style="height: 60px;" alt="" class=" responive-img" >
+                 </a>
+                   <a href="/" class="button-collapse" data-activates="mobile-show"><i class="material-icons">menu</i></a>
+                   <ul class="right hide-on-med-and-down">
+                       <li ><a href="{{ pathFor route="root"}}" class="btn-flat  white-text   waves-effect waves-red ">Home</a></li>
+                       <li ><a href="{{ pathFor route="posts"}}" class="btn-flat white-text waves-effect waves-red">Post Lists</a></li>
+                       <li ><a href="{{ pathFor route="about"}}" class="btn-flat white-text waves-effect waves-red">About</a></li>
+                       <li ><a href="{{ pathFor route="login"}}" class="btn-flat white-text waves-effect waves-red">Login</a></li>
+                   </ul>
+                   <div class="side-nav" id="mobile-show">
+                       <li ><a href="/" class="btn-flat  waves-effect waves-red">Home</a></li>
+                        <li ><a href="/all" class="btn-flat waves-effect waves-red" >All posts</a></li>
+                       <li ><a href="/about" class="btn-flat  waves-effect waves-red">About</a></li>
+                   </div>
+               </div>
+           </nav>
+       </div>
+   </header>
+</template>

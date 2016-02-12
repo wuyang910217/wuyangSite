@@ -1,0 +1,41 @@
+<template name="signup">
+    <div class="container">
+        <div class="card-panel teal">
+    <p class=" flow-text center-align white-text text-darken-2">浏览容易，注册不易，且行且珍惜</p>
+    </div>
+        <div class="row ">
+            <div class=" hoverable card-panel white col s12 l8 push-l2">
+                <form>
+                    <div class="row">
+                        <div class="input-field col s12 l8  push-l2">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input type="text" id="user_name" class="validate">
+                            <label for="user_name">用户名</label>
+                        </div>
+                        <div class="input-field col s12 l8 push-l2">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input type="email" id="email" class="validate">
+                            <label for="email">邮箱 </label>
+                        </div>
+                        <div class="input-field col s12 l8 push-l2">
+                            <i class="material-icons prefix">account_circle </i>
+                            <input type="password" id="password" class="validate">
+                            <label for="password">密码 </label>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="row center">
+                    <div class="col s12 l4 push-l4">
+                        <button class="btn waves-effect waves-darken+5">马上注册</button>
+                    </div>
+                    <div class="col s12 l4 push-l4">
+                        <small>已有账号，马上</small>
+                        <a href="{{pathFor route="login"}}" class="btn red waves-effect waves-light">登陆</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</template>
