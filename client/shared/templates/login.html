@@ -5,30 +5,34 @@
         </div>
         <div class="row ">
             <div class=" hoverable card-panel white col s12 l8 push-l2">
-                <form>
+                <form id="login-form">
                     <div class="row">
                         <div class="input-field col s12 l8 push-l2">
                             <i class="material-icons prefix">account_circle</i>
-                            <input type="email" id="email" class="validate">
-                            <label for="email">注册邮箱 </label>
+                            <input type="email"  name="email" class="validate">
+                            <label for="email">邮箱 </label>
                         </div>
                         <div class="input-field col s12 l8 push-l2">
                             <i class="material-icons prefix">account_circle </i>
-                            <input type="password" id="password" class="validate">
+                            <input type="password"  name="password" class="validate">
                             <label for="password">密码 </label>
                         </div>
                     </div>
                 </form>
                 <div class="row center">
                     <div class="col s12 l4 push-l4">
-                        <button class="btn waves-effect waves-darken+4">登陆</button>
+                        <button id="login" type="submit" class="btn waves-effect waves-darken+4">登陆</button>
                     </div>
                     <div class="col s12 l4 push-l4">
                         <small>没有账号，马上去</small>
-                        <a href="{{pathFor route="signup"}}" class="btn red waves-effect waves-light">注册</a>
+                        <a href="{{pathFor route="signup"}}"  class="btn red waves-effect waves-light">注册</a>
                     </div>
+                </div>
+                <div class="center red-text">
+                    {{ error }}
                 </div>
             </div>
         </div>
+        
     </div>
 </template>

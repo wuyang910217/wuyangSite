@@ -21,6 +21,5 @@ iron:router
 sacha:spin
 accounts-password
 aldeed:collection2
-aldeed:autoform
-accounts-github
-accounts-twitter
+reactive-var
+check

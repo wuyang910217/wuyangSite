@@ -1,25 +1,53 @@
 <template name="header">
-   <header>
-       <div class="navbar-fixed">
-           <nav>
-               <div class="nav-wrapper deep-purple darken-2">
-                 <a href="/" class="brand-logo">
-                 <img src="images/linux.png" style="height: 60px;" alt="" class=" responive-img" >
-                 </a>
-                   <a href="/" class="button-collapse" data-activates="mobile-show"><i class="material-icons">menu</i></a>
-                   <ul class="right hide-on-med-and-down">
-                       <li ><a href="{{ pathFor route="root"}}" class="btn-flat  white-text   waves-effect waves-red ">Home</a></li>
-                       <li ><a href="{{ pathFor route="posts"}}" class="btn-flat white-text waves-effect waves-red">Post Lists</a></li>
-                       <li ><a href="{{ pathFor route="about"}}" class="btn-flat white-text waves-effect waves-red">About</a></li>
-                       <li ><a href="{{ pathFor route="login"}}" class="btn-flat white-text waves-effect waves-red">Login</a></li>
-                   </ul>
-                   <div class="side-nav" id="mobile-show">
-                       <li ><a href="/" class="btn-flat  waves-effect waves-red">Home</a></li>
-                        <li ><a href="/all" class="btn-flat waves-effect waves-red" >All posts</a></li>
-                       <li ><a href="/about" class="btn-flat  waves-effect waves-red">About</a></li>
-                   </div>
-               </div>
-           </nav>
-       </div>
-   </header>
+    <header>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper deep-purple darken-2">
+                    <a href="{{ pathFor route="root"}}" class="brand-logo">wuyang</a>
+                    <a href="{{ pathFor route="root"}}" class="button-collapse" data-activates="mobile-show"><i class="material-icons">menu</i></a>
+                    <div class="center hide-on-med-and-down">
+                    <button class="btn-flat disabled deep-purple darken-2"></button>
+                            <a href="{{ pathFor route="root"}}" class="btn-flat  white-text   waves-effect waves-red ">首页</a>
+                            <a href="{{ pathFor route="allPosts"}}" class="btn-flat white-text waves-effect waves-red">文章列表</a>
+                            <a href="{{ pathFor route="about"}}" class="btn-flat white-text waves-effect waves-red">关于我</a>
+                            <div class="right">
+                            {{#if  currentUser}}
+                            {{#if isAdmin currentUser}}
+                            <a href="{{ pathFor route="admin"}}" class="btn-flat white-text waves-effect waves-red ">后台管理</a> 
+                            <a href="#!" class="disabled btn-flat  white-text waves-effect waves-red ">欢迎, {{username}}</a> 
+                                <button class="btn red waves-effect waves-light" onclick="Materialize.toast('退出成功!',2000)" id="logout">退出</button>
+                                <button class="btn-flat disabled deep-purple darken-2"></button>
+                            {{else}}
+                            <a href="#!" class="disabled btn-flat  white-text waves-effect waves-red ">欢迎, {{username}}</a> 
+                                <button class="btn red waves-effect waves-light" onclick="Materialize.toast('退出成功!',2000)" id="logout">退出</button>
+                                <button class="btn-flat disabled deep-purple darken-2"></button>
+                            {{/if}}
+                            {{else}}
+                                <a href="{{ pathFor route="login"}}" class="btn green white-text waves-effect waves-light">Login</a>
+                                <button class="btn-flat disabled deep-purple darken-2"></button>
+                            {{/if}}
+                            </div>
+                    </div>
+                </div>
+                <div class="side-nav" id="mobile-show">
+                    <a href="{{ pathFor route="root"}}" class="btn-flat  waves-effect waves-red ">首页</a>
+                    <a href="{{ pathFor route="posts"}}" class="btn-flat waves-effect waves-red ">文章列表</a>
+                    <a href="{{ pathFor route="about"}}" class="btn-flat  waves-effect waves-red ">关于我</a> 
+                    {{#if currentUser}}
+                    {{#if isAdmin currentUser}}
+                    <a href="{{ pathFor route="admin"}}" class="bbtn-flat  waves-effect waves-red  ">后台管理</a> 
+                    <a href="#!" class="disabled btn-flat  waves-effect waves-red teal-text ">欢迎, {{username}}</a> 
+                    <button class="btn red waves-effect waves-light" onclick="Materialize.toast('退出成功!',2000)" id="logout">退出</button>
+                            {{else}}
+                            <a href="#!" class="disabled btn-flat  waves-effect waves-red teal-text ">欢迎, {{username}}</a> 
+                    <button class="btn red waves-effect waves-light" onclick="Materialize.toast('退出成功!',2000)" id="logout">退出</button>
+                            {{/if}}
+                    {{else}}
+                    <a href="{{ pathFor route="login"}}" class="btn-flat waves-effect waves-red">Login</a> 
+                    {{/if}}
+
+                </div>
+            </nav>
+        </div>
+    </header>
 </template>

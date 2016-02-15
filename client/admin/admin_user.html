@@ -1,0 +1,38 @@
+<template name="adminUser">
+    <div class="container">
+        <div class="card-panel">
+            <p>注册用户共有<span class="btn-flat purple white-text">{{userCount}}</span>个</p>
+            <div class="row">
+                <div class="col s12 l12">
+                    <div class="card-panel teal">
+                        <h5 class="center-align red-text text-darken-2">{{ error }}</h5>
+                        <table class="bordered highlight centered responsive-table ">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Create at</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each allUsers}}
+                                <tr>
+                                    <td>{{ username }}</td>
+                                    <td> {{#each emails}} {{ address }} {{/each}}
+                                    </td>
+                                    <td>{{ roles }}</td>
+                                    <td>{{ formatDate createdAt }}</td>
+                                    <td><a data="{{_id}}" class="red-text" id="delete">Delete</a ></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+            </div>
+           
+        </div>
+    </div>
+    </div>
+</template>

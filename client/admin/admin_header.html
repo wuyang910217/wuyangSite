@@ -1,19 +1,31 @@
 <template name="adminHeader">
-<header>
-<div class="card-panel teal">
-<div class="center">
-    <div class="row">
-        <div class="col s4 l4">
-                <a href="{{ pathFor route="root"}}" class="btn waves-effect waves-light red ">Home</a>
-            </div>
-            <div class="col s4 l4">
-                <a href="{{ pathFor  route="root"}}" class="btn waves-effect waves-light red ">Home</a>
-            </div>
-            <div class="col s4 l4">
-                <a href="{{ pathFor route="root"}}" class="btn waves-effect waves-light red ">Home</a>
-            </div>
+    <header>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper black">
+                <div class="container">
+                        <a href="{{ pathFor route="root"}}" class="btn waves-effect waves-red ">返回首页</a>
+                        <button class="hide-on-small-only disabled btn-flat green-text">欢迎来到控制台</button>
+                        <button class="hide-on-med-and-down disabled btn-flat green-text">人生如戏，全靠演技</button>
+                        <div class="right">
+                        {{#if currentUser}}
+                        <button class="btn red" onclick="Materialize.toast('退出成功!',2000)"  id="logout">退出</button>
+                        {{/if}}
+                        </div>
+                        </div>
+                </div>
+            </nav>
         </div>
-        </div>
-    </div>
+        <div class="fixed-action-btn click-to-toggle" style="bottomL 45px; right: 24px;">
+                <a class="btn-floating btn-large red ">
+                    <i class="large mdi-navigation-menu">mode_edit</i>
+                </a>
+                <ul>
+                    <li><button class="btn-floating red" id="logout"><i class="material-icons">insert_chart</i></button></li>
+                    <li><a href="{{pathFor route='users'}}" class="btn-floating yellow"><i class="material-icons">format_quote</i></a></li>
+                    <li><a href="{{pathFor route='newPost'}}" class="btn-floating green"><i class="material-icons">publish</i></a></li>
+                    <li><a href="{{pathFor route='admin'}}" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                </ul>
+            </div>
     </header>
 </template>
