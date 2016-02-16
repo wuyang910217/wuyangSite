@@ -7,9 +7,21 @@ Meteor.methods({
     postData.summary = postData.body.substring(0, 60).trim();
     if ( user && user.roles==='admin' ) {
       var postId= Posts.insert(postData);
-      return {_id: postId}
+      return {_id: postId};
     }
   },
+
+  editPost: function(postId,postData) {
+    var user = Meteor.user();
+    postData.authorId = user._id;
+    postData.authorName = user.username;
+    postData.publishedOn = new Date().getTime();
+    postData.summary = postData.body.substring(0, 60).trim();
+    if ( user && user.roles==='admin' ) {
+      Posts.update(postId, {$set: postData});
+    }
+  },
+
   deletePost: function(PostId) {
     var user = Meteor.user();
     var post = Posts.findOne({_id: PostId});
@@ -21,6 +33,7 @@ Meteor.methods({
     addNewUser: function(user) {
         Accounts.createUser(user);
     },
+
     deleteUser: function(userID) {
     var currentUser = Meteor.user();
     if ( currentUser && currentUser._id !== userID ) {

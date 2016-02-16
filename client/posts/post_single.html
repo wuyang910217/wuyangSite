@@ -1,3 +1,20 @@
 <template name="singlePost">
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium quos quia reprehenderit dolore quisquam recusandae itaque aliquam blanditiis laborum et repudiandae tempora tenetur, similique deserunt! Quaerat recusandae distinctio, at ducimus?</p>
+    <div class="container">
+        <div class="card-panel teal white-text">
+            <h5 class="center-align">{{title}}</h5>
+            <div class="divider red"></div>
+                <section >
+                <p class="right-align">
+                    <span class="black-text">作者：</span>{{authorName}}
+                    <span class="black-text">  标签：</span>{{tag}}
+                    <span class="black-text">  发布于：</span>{{formatDate publishedOn}}
+                </p>
+                </section>
+            <section>
+                <div class="card-panel teal darken+4">
+                    {{body}}
+                </div>
+            </section>
+        </div>
+    </div>
 </template>

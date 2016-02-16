@@ -1,25 +1,32 @@
 <template name="editPost">
-	<div class="container">
-<div class="card-panel">
-            <div class="row ">
-                <div class="col s12 l12">
-                    <div class="card teal" style="height: 300px;">
-                        <div class="card-content">
-                            <p>标题： <span class="white-text">{{title}}</span></p>
-                            <div class="card-panel purple">
-                                <p>作者： <span class="white-text">{{authorName}}</span></p>
-                                <div class="divider"></div>
-                                <p>标签： <span class="white-text">{{tag}}</span></p>
-                                <div class="divider"></div>
-                                <p>日期： <span class="white-text">{{formatDate publishedOn}}</span></p>
-                                <div class="divider"></div>
-                                <p> 预览： <span class="white-text">{{summary}}</span></p>
-                            </div>
-                            <a href="{{pathFor route="singlePost"}}" class="btn red" id="post-show">查看</a>
+    <div class="container">
+        <div class="card-panel">
+            <h5 class="blue-text text-darken-2">{{title}}</h5>
+            <p >{{authorName}}</p>
+            <p >{{formatDate publishedOn}}</p>
+            <form name="new-post" id='new-post'>
+                <div class="row">
+                    <div class="col s6 l6">
+                        <div class="input-field">
+                            <input id="post-title" type="text" name="title" class="validate" required>
+                            <label for="post-title">Title</label>
                         </div>
                     </div>
+                    <div class="col s6 l6">
+                        <div class="input-field">
+                            <input id="post-tag" type="text" name="tag" class="validate" required>
+                            <label for="post-tag" class="active">Tag</label>
+                        </div>
+                    </div>
+                    <div class="col s12 l12">
+                        <div id="summernote"></div>
+                    </div>
                 </div>
-            </div>
+                <button class="btn waves-effect waves-light blue darken-2" id="submit-edit-post">Submit
+                    <i class="mdi-content-send right"></i>
+                </button>
+            </form>
+            <h5 class="center-align red-text text-darken-2">{{ error }}</h5>
         </div>
-        </div>
+    </div>
 </template>

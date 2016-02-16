@@ -4,17 +4,17 @@
 <div class="card-panel">
             <div class="row ">
                 <div class="col s12 l12">
-                    <div class="card teal" style="height: 300px;">
+                    <div class="card teal">
                         <div class="card-content">
-                            <p>标题： <span class="white-text">{{title}}</span></p>
-                            <div class="card-panel purple">
+                            <h5>标题： <span class="white-text">{{title}}</span></h5>
+                            <div class="card-panel teal darken+4">
                                 <p>作者： <span class="white-text">{{authorName}}</span></p>
                                 <div class="divider"></div>
                                 <p>标签： <span class="white-text">{{tag}}</span></p>
                                 <div class="divider"></div>
                                 <p>日期： <span class="white-text">{{formatDate publishedOn}}</span></p>
                                 <div class="divider"></div>
-                                <p> 预览： <span class="white-text">{{summary}}</span></p>
+                                <p> 内容： <span class="white-text">{{summary}}</span></p>
                             </div>
                             <a href="{{pathFor route="singlePost"}}" class="btn red" id="post-show">查看</a>
                         </div>

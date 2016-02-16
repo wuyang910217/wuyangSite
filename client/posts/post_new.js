@@ -2,6 +2,13 @@ Template.newPost.onCreated(function () {
   this.error = new ReactiveVar('');
 });
 
+Template.newPost.onRendered(function(){
+  $('#summernote').summernote({
+    height: 350,
+    focus: true
+  });
+});
+
 Template.newPost.helpers({
   error: function() {
     return Template.instance().error.get();
@@ -16,7 +23,7 @@ Template.newPost.events({
     var post = {
       title: $('input[name=title]').val().trim(),
       tag: $('input[name=tag]').val().trim(),
-      body: $('textarea[name=post-textarea]').val().trim(),
+      body: $('#summernote').summernote('code')
     };
     Meteor.call('newPost', post, function(error,result) {
       if (error) {

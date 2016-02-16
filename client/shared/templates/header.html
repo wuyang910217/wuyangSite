@@ -31,7 +31,7 @@
                 </div>
                 <div class="side-nav" id="mobile-show">
                     <a href="{{ pathFor route="root"}}" class="btn-flat  waves-effect waves-red ">首页</a>
-                    <a href="{{ pathFor route="posts"}}" class="btn-flat waves-effect waves-red ">文章列表</a>
+                    <a href="{{ pathFor route="allPosts"}}" class="btn-flat waves-effect waves-red ">文章列表</a>
                     <a href="{{ pathFor route="about"}}" class="btn-flat  waves-effect waves-red ">关于我</a> 
                     {{#if currentUser}}
                     {{#if isAdmin currentUser}}

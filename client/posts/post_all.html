@@ -8,10 +8,15 @@
                 	<li class="collection-item teal avatar white-text">
                 		<i class="material-icons circle red">publish</i>
                 		<h5>{{title}}</h5>
-                		<div class="divider"></div>
-                		<p>{{tag}}</p>
-                		<p>{{formatDate publishedOn}}</p>
-                		 <p> 预览： {{summary}}</p>
+                		<div class="divider red"></div>
+                         <section >
+                <p class="left-align">
+                    <span class="black-text">作者：</span>{{authorName}}
+                    <span class="black-text">  标签：</span>{{tag}}
+                    <span class="black-text">  发布于：</span>{{formatDate publishedOn}}
+                </p>
+                </section>
+                <section><p> <span class="black-text">内容：</span>{{summary}}</p></section>
                 	</li>
                 	<li class="collection-header center">
                 <a href="{{pathFor route="singlePost"}}" class="btn red waves-effect waves-light white-text">查看</a>
