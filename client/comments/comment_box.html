@@ -1,0 +1,39 @@
+<template name="comment">
+<div class="container">
+<div class="card-panel yellow lighten-2 center">
+<button id="btn-like" class="btn white-text waves-effect waves-light">共收到{{likesCount}}个赞</button>
+  <button id="btn-unlike" class="btn red white-text waves-effect waves-light">共有{{unlikesCount}}人不喜欢</button>
+  </div>
+</div>
+    <div class="card-panel indigo darken-3">
+        {{#if currentUser}}
+        <h5 class="white-text">快来评论吧 <small class="blue-text"> 试试markdown格式(注意：换行请敲两次空格)</small></h5>
+        <form id="comment">
+            <div class="input-field">
+                <textarea id="textarea" placeholder="在这输入内容" class="white materialize-textarea"></textarea>
+                <label for="textarea"></label>
+            </div>
+            <button class="btn white-text waves-effect waves-light " id="submit-comment">提交
+                <i class="mdi-content-send right"></i>
+            </button>
+        </form>
+        <h5 class="red-text center-align">{{error}}</h5>
+         {{else}}
+        <h5 class="white-text">想说两句，请先<a href="{{pathFor route='login'}}" class="btn red">登陆</a>吧</h5>
+         {{/if}}
+    </div>
+        {{#each comments}}
+    <div class="card-panel teal darken-4">
+    <p class="blue-text">
+    {{authorName}}&nbsp;&nbsp;&nbsp;{{formatDate createdAt}} 
+    {{#if isAdmin currentUser}}
+      <button data="{{_id}}" id="delete-comment" class="btn white-text red waves-effect waves-light">删除评论</button>
+      {{/if}}
+    </p>
+     <div class="divider"></div>
+     <div class="card-panel teal darken-4">
+     <p class="white-text">{{#markdown}}{{{content}}}{{/markdown}}</p>
+</div>
+    </div>
+        {{/each}}
+</template>

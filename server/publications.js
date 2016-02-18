@@ -20,6 +20,10 @@ Meteor.publish('editPost', function(postId) {
     
 });
 
+Meteor.publish('post-comment',function(postId){
+    return Comments.find({postId: postId});
+});
+
 
 Meteor.publish(null, function() {
     if (this.userId) {

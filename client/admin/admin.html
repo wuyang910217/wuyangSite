@@ -1,6 +1,6 @@
 <template name="admin">
     <div class="container">
-    <div class="card-panel teal col s12 center white-text">
+        <div class="card-panel teal col s12 center white-text">
             <p>现在是<span class='btn red waves-effect waves-light'>{{today}}</span></p>
             <p>博客已运行 <span class="btn red waves-effect waves-light">{{currentTime}}</span></p>
             <p>总共有<span class='btn red waves-effect waves-light'>{{postCount}}</span>篇文章</p>
@@ -11,48 +11,52 @@
             <a href="{{pathFor route="newPost"}}" class="btn waves-effect waves-light">写文章</a>
         </div>
         {{else}}
-         <h5 class="red-text text-darken-2">{{ error }}</h5>
+        <h5 class="red-text text-darken-2">{{ error }}</h5>
         <div class="card-panel">
             <div class="row ">
                 {{#each allPosts}}
                 <div class="col s12 l6">
-                    <div class="card teal" style="height: 300px;">
+                    <div class="card teal" style="height: 260px;">
                         <div class="card-content">
                             <p>标题： <span class="white-text">{{title}}</span></p>
                             <div class="card-panel purple">
-                                <p>作者： <span class="white-text">{{authorName}}</span></p>
+                                <p>作者： <span class="white-text">{{authorName}}</span>
+                                &nbsp;&nbsp;
+                                评论数： <span class="white-text">{{commentsCount}}</span>
+                                </p>
                                 <div class="divider"></div>
-                                <p>标签： <span class="white-text">{{tag}}</span></p>
+                                <p>标签： <span class="white-text">{{tag}}</span>
+                                &nbsp;&nbsp;
+                                点赞数：<span class="white-text">{{likesCount}}</span>
+                                </p>
                                 <div class="divider"></div>
                                 <p>日期： <span class="white-text">{{formatDate publishedOn}}</span></p>
-                                <div class="divider"></div>
-                                <p> 内容： <span class="white-text">{{summary}}</span></p>
                             </div>
-                            <a href="{{pathFor route="singlePost"}}" class="btn red" id="post-show">查看</a>
-                            <a href="{{pathFor route="editPost"}}" class="btn red" id="post-edit">编辑</a>
-                            <button class="btn red" id="post-delete" data="{{_id}}">删除</button>
+                                    <a href="{{pathFor route="singlePost"}}" class="btn red" id="post-show">查看</a>
+                                    <a href="{{pathFor route="editPost"}}" class="btn red" id="post-edit">编辑</a>
+                                    <button class="btn red" id="post-delete" data="{{_id}}">删除</button>
                         </div>
                     </div>
                 </div>
-                {{/each}}
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+    </div>
+    <div id="modal" class="modal modal-fixed-footer" style="height: 250px;">
+        <div class="modal-content center">
+            <h4 class="red-text">确认删除文章</h4>
+            <p>注意：此操作不可撤销，请三思而后行。。。</p>
+            <p>注意：此操作不可撤销，请三思而后行。。。</p>
+            <p>注意：此操作不可撤销，请三思而后行。。。</p>
+        </div>
+        <div class="modal-footer">
+            <div class="modal-action modal-close confirm">
+                <div class="center">
+                    <button class="btn-flat waves-effect waves-light ">确定</button>
+                </div>
+                <button class="btn-flat waves-effect waves-light ">取消</button>
             </div>
         </div>
-        {{/if}}
     </div>
-
-    <div id="modal" class="modal modal-fixed-footer" style="height: 250px;">
-    <div class="modal-content center">
-      <h4 class="red-text">Delete Post</h4>
-      <p>Are you sure you really want to delete this post?</p>
-      <p>This cannot be undone.</p>
-    </div>
-    <div class="modal-footer">
-    <div class="modal-action modal-close confirm">
-    <div class="center">
-      <button class="btn-flat waves-effect waves-light ">确定</button>
-    </div>
-      <button class="btn-flat waves-effect waves-light ">取消</button>
-    </div>
-    </div>
-  </div>
 </template>

@@ -71,5 +71,4 @@ Template.registerHelper('userCount', function() {
 
 Template.registerHelper('postCount', function() {
     return Posts.find().count();
-
 });

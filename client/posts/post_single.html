@@ -1,19 +1,22 @@
 <template name="singlePost">
     <div class="container">
-        <div class="card-panel teal white-text">
-            <h5 class="center-align">{{title}}</h5>
-            <div class="divider red"></div>
+        <div class="card-panel indigo darken-2">
+            <h5 class="center-align white-text">{{title}}</h5>
+            <div class="divider black"></div>
                 <section >
                 <p class="right-align">
-                    <span class="black-text">作者：</span>{{authorName}}
-                    <span class="black-text">  标签：</span>{{tag}}
-                    <span class="black-text">  发布于：</span>{{formatDate publishedOn}}
+                    <span class="chip purple white-text">{{tag}}</span>
+                    作者：<span class="white-text">{{authorName}}</span>
+                   发布于：<span class="white-text">{{formatDate publishedOn}}</span>
                 </p>
                 </section>
             <section>
-                <div class="card-panel teal darken+4">
-                    {{body}}
+                <div class="card-panel grey lighten-2">
+                {{#markdown}}{{{body}}}{{/markdown}}
                 </div>
+            </section>
+            <section>
+                {{> comment}}
             </section>
         </div>
     </div>

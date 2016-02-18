@@ -18,7 +18,15 @@ Template.login.events({
 
         Meteor.loginWithPassword(email, password, function(error) {
             if (error) {
+                if (error.reason === 'Incorrect password'){
+                template.error.set('密码错误');
+                }else if (error.reason === 'Match failed') {
+                template.error.set('请输入你的邮箱');
+                }else if (error.reason === 'User not found') {
+                template.error.set('此邮箱还没有注册');
+                } else{
                 template.error.set(error.reason);
+                }
             } else {
                 Router.go('/');
             }
