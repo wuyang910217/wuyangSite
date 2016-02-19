@@ -12,5 +12,6 @@ Template.header.events({
 	'click #logout':  function(event){
 		event.preventDefault();
 		Meteor.logout();
+		Materialize.toast('退出成功!',2000);
 	}
 });

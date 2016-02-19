@@ -3,6 +3,7 @@ Meteor.methods({
         var user = Meteor.user();
         check(postData, {
             title: String,
+            category: String,
             tag: String,
             body: String
         });
@@ -43,6 +44,7 @@ Meteor.methods({
         var user = Meteor.user();
         check(postData, {
             title: String,
+            category: String,
             tag: String,
             body: String
         });

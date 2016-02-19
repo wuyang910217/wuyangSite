@@ -33,12 +33,14 @@ Template.signup.events({
                     template.error.set('邮箱已经被注册了');
                 }else if (error.reason === 'Need to set a username or email') {
                     template.error.set('请输入你的用户名和邮箱');
+                } else if (error.reason === 'Username already exists.') {
+                    template.error.set('换个名字吧');
                 } else{
                     template.error.set(error.reason);
                 }
             } else {
                 Meteor.loginWithPassword(email, password);
-                Router.go('/');
+                // Router.go('/');
             }
         });
         document.getElementById('signup-form').reset();

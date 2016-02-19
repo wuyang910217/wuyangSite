@@ -13,6 +13,7 @@ Template.editPost.onRendered(function() {
   $('input[name=title]').val(post.title);
   $('input[name=tag]').val(post.tag);
   $('#textarea').val(post.body);
+  $('#textarea').trigger('autoresize');
   // $('.note-editable').html(post.body);
 });
 
@@ -22,13 +23,24 @@ Template.editPost.helpers({
   }
 });
  
+ function getCategory(){
+  var categories =$("input[name=category]");
+    for (i=0;i<categories.length;i++) {
+      if(categories[i].checked){
+        return categories[i].value;
+      }
+    }
+  };
+  
 Template.editPost.events({
   "click #submit-edit-post": function(event, template) {
     event.preventDefault();
    var post_id = Template.instance().postId.get();
+   var category =getCategory();
     var post = {
       title: $('input[name=title').val().trim(),
       tag: $('input[name=tag').val().trim(),
+      category: category,
       body: $('#textarea').val().trim(),
       // body: $('#summernote').summernote('code')
     }

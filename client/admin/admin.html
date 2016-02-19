@@ -1,10 +1,12 @@
 <template name="admin">
                         
     <div class="container">
-        <div class="card-panel teal col s12 center white-text">
-            <p>现在是<span class='btn red waves-effect waves-light'>{{today}}</span></p>
-            <p>博客已运行 <span class="btn red waves-effect waves-light">{{currentTime}}</span></p>
-            <p>总共有<span class='btn red waves-effect waves-light'>{{postCount}}</span>篇文章</p>
+        <div class="card-panel red lighten-2 white-text">
+            <section>
+            现在是<button class="btn">{{today}}</button>
+            博客已运行<button class="btn">{{currentTime}}</button> 
+            总共有<button class="btn">{{postCount}}</button>篇文章
+            </section>
         </div>
         {{#if noPost}}
         <div class="card-panel red white-text">
@@ -30,6 +32,8 @@
                                 &nbsp;&nbsp;
                                 点赞数：<span class="white-text">{{likesCount}}</span>
                                 </p>
+                                <div class="divider"></div>
+                              <p>类别：<span class="white-text">{{category}}</span></p> 
                                 <div class="divider"></div>
                                 <p>日期： <span class="white-text">{{formatDate publishedOn}}</span></p>
                             </div>

@@ -4,7 +4,7 @@
             <nav>
                 <div class="nav-wrapper black">
                     <div class="container">
-                        <a href="{{ pathFor route=" root "}}" class="btn waves-effect waves-red ">返回首页</a>
+                        <a href="{{ pathFor route='root'}}" class="btn waves-effect waves-red ">返回首页</a>
                         <button class="hide-on-small-only disabled btn-flat green-text">欢迎来到控制台</button>
                         <button class="hide-on-med-and-down disabled btn-flat green-text">人生如戏，全靠演技</button>
                         <div class="right">
@@ -12,25 +12,19 @@
                             <button id="notify" class="btn">新评论{{notificationCount}}</button>
                             {{else}}
                             <button class="btn">无新评论</button>
-                            {{/if}} {{#if currentUser}}
-                            <button class="btn red" id="logout">退出</button>
-                            {{/if}}
+                            {{/if}} 
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
-        <div class="fixed-action-btn click-to-toggle" style="bottomL 45px; right: 24px;">
-            <a class="btn-floating btn-large red ">
-                <i class="large mdi-navigation-menu">mode_edit</i>
-            </a>
+        <div class="fixed-action-btn " style="bottomL 45px; right: 24px;">
+            <a class="btn-floating btn-large red "><i class="mdi-navigation-menu"></i></a>
             <ul>
-                <li>
-                    <button class="btn-floating red" id="logout"><i class="material-icons">insert_chart</i></button>
-                </li>
-                <li><a href="{{pathFor route='users'}}" class="btn-floating yellow"><i class="material-icons">format_quote</i></a></li>
-                <li><a href="{{pathFor route='newPost'}}" class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                <li><a href="{{pathFor route='admin'}}" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                <li><button class="btn-floating red" id="logout"><i class="mdi-action-settings-power"></i></button></li>
+                <li><a href="{{pathFor route='users'}}" class="btn-floating blue"><i class="mdi-action-account-box"></i></a></li>
+                <li><a href="{{pathFor route='newPost'}}" class="btn-floating pink"><i class="mdi-content-add-box"></i></a></li>
+                <li><a href="{{pathFor route='admin'}}" class="btn-floating purple"><i class="mdi-action-home"></i></a></li>
             </ul>
         </div>
         <div id="modal1" class="modal modal-fixed-footer" style="height: 250px;">
@@ -39,7 +33,7 @@
             </div>
             <div class="modal-footer">
                 <div class="modal-action modal-close confirm">
-                    <button id="clearAllNotify" class="btn red center">清空所有通知</button>
+                    <button id="clearAllNotify" class="btn red center"><i class="mdi-content-clear"></i>&nbsp;清空所有通知</button>
                 </div>
             </div>
         </div>
