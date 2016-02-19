@@ -3,6 +3,13 @@
         <div class="card-panel teal">
             <p class=" flow-text center-align white-text text-darken-2">人世间最痛苦的事莫过于：心中虽有千言，却没有这个权限</p>
         </div>
+        {{#if currentUser}}
+        <div class="section center">
+        <h4 class="center-align blue-text">登陆成功，你可以</h4>
+        <a href="{{pathFor route='root'}}" class="btn waves-effect waves-light">去首页</a>
+        <button onclick="javascript:history.go(-1);" class="btn waves-effect waves-light">返回上一级</button>
+        </div>
+        {{else}}
         <div class="row ">
             <div class=" hoverable card-panel white col s12 l8 push-l2">
                 <form id="login-form">
@@ -33,6 +40,6 @@
                 </div>
             </div>
         </div>
-        
+        {{/if}}
     </div>
 </template>

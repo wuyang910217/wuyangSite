@@ -1,5 +1,6 @@
 Template.comment.onCreated(function () {
   this.error = new ReactiveVar('');
+  this.currentPath = new ReactiveVar('');
   this.postId = new ReactiveVar(Template.instance().data._id);
   Meteor.subscribe('post-comment',this.postId.curValue);
 });
@@ -57,4 +58,8 @@ Template.comment.events({
      Meteor.call('postUnLike',post_id);
     Materialize.toast('别担心，我不会气馁的!',2000);
 }
+// "click #btn-login": function(event,template){
+//   var path =Router.current().route.getName();
+//   template.currentPath.set(path);
+// }
 });

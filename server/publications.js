@@ -7,10 +7,12 @@ Meteor.publish('lastestPosts', function() {
 });
 
 Meteor.publish('singlePost', function(postId) {
+    check(postId,String);
     return Posts.find({_id: postId});
 });
 
 Meteor.publish('editPost', function(postId) {
+    check(postId,String);
      var user = Meteor.users.findOne(this.userId);
     if (user.roles === 'admin') {
         return Posts.find({_id: postId});
@@ -21,9 +23,13 @@ Meteor.publish('editPost', function(postId) {
 });
 
 Meteor.publish('post-comment',function(postId){
+    check(postId,String);
     return Comments.find({postId: postId});
 });
 
+Meteor.publish('notifications', function(){
+    return Notifications.find({userId: this.userId,read: false});
+});
 
 Meteor.publish(null, function() {
     if (this.userId) {

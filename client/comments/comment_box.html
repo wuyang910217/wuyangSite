@@ -19,7 +19,7 @@
         </form>
         <h5 class="red-text center-align">{{error}}</h5>
          {{else}}
-        <h5 class="white-text">想说两句，请先<a href="{{pathFor route='login'}}" class="btn red">登陆</a>吧</h5>
+        <h5 class="white-text">想说两句，请先<a href="{{pathFor route='login'}}" id="btn-login" class="btn red">登陆</a>吧</h5>
          {{/if}}
     </div>
         {{#each comments}}

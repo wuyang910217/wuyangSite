@@ -15,8 +15,7 @@ Template.registerHelper('allPosts', function(){
 
 Template.registerHelper('formatDate', function(d) {
     var date = new Date(d);
-    date = date.toLocaleDateString() + " " + date.toLocaleTimeString();
-    return date;
+    return date.toLocaleString();
 });
 
 Template.registerHelper('today', function() {

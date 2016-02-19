@@ -26,7 +26,6 @@ Template.signup.events({
             profile: profile,
             roles: roles,
         };
-        document.getElementById('signup-form').reset();
         Meteor.call('addNewUser', userObj, function(error) {
             if (error) {
                 // console.log(error.reason);
@@ -38,8 +37,10 @@ Template.signup.events({
                     template.error.set(error.reason);
                 }
             } else {
+                Meteor.loginWithPassword(email, password);
                 Router.go('/');
             }
         });
+        document.getElementById('signup-form').reset();
     }
 })

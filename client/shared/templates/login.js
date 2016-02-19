@@ -1,6 +1,5 @@
 Template.login.onCreated(function() {
     this.error = new ReactiveVar('');
-
 });
 
 Template.login.helpers({
@@ -27,9 +26,10 @@ Template.login.events({
                 } else{
                 template.error.set(error.reason);
                 }
-            } else {
-                Router.go('/');
             }
+            //  else {
+            //     Router.go('/');
+            // }
         });
         document.getElementById('login-form').reset();
     }
