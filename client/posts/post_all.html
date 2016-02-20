@@ -1,17 +1,17 @@
 <template name="allPost">
     <div class="container">
+            {{> pages}}
+    {{> pagesNav}}
+    </div>
+</template>
+
+<template name="itemPost">
         <div class="card-panel" >
-            <div class="row">
-            {{#if noPost}}
-            <h5 class="red-text center-align">很抱歉，暂时还没有文章。</h5>
-            {{else}}
-                {{#each allPosts}}
-                <div class="col s12 l12">
                 <ul class="collection with-header">
-                	<li class="collection-item teal avatar white-text">
-                		<i class="mdi-communication-message circle red"></i>
-                		<h5>{{title}}</h5>
-                		<div class="divider red"></div>
+                    <li class="collection-item teal avatar white-text">
+                        <i class="mdi-editor-border-all circle purple"></i>
+                        <h5>{{title}}</h5>
+                        <div class="divider red"></div>
                          <section >
                 <p class="left-align">
                     <span class="black-text">作者：</span>{{authorName}}
@@ -25,16 +25,10 @@
                     <span class="black-text">发布于：</span>{{formatDate publishedOn}}
                 </p>
                 </section>
-                <!-- <section><p> <span class="black-text">内容：</span>{{#markdown}}{{summary}}{{/markdown}}</p></section> -->
-                	</li>
-                	<li class="collection-header center">
+                    </li>
+                    <li class="collection-header center">
                 <a href="{{pathFor route="singlePost"}}" class="btn red waves-effect waves-light white-text">查看</a>
-                	</li>
+                    </li>
                 </ul>
-                </div>
-                {{/each}}
-                {{/if}}
-            </div>
         </div>
-    </div>
 </template>
