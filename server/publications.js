@@ -3,13 +3,23 @@ Meteor.publish('allPosts', function() {
 });
 
 Meteor.publish('lastestPosts', function() {
-    return Posts.find({}, {sort: {publishedOn: -1} });
+    return Posts.find({}, {sort: {publishedOn: -1},limit: 1});
 });
 
 Meteor.publish('singlePost', function(postId) {
     check(postId,String);
     return Posts.find({_id: postId});
 });
+
+Meteor.publish('searchPost',function(searchText){
+    check(searchText.String);
+    if (searchText.length===0 || searchText==="") {
+        return [];
+    }else{
+        var regExp =new RegExp(searchText,"i");
+    return Posts.find({title: regExp},{sort: {publishedOn: -1}});
+    }
+})
 
 Meteor.publish('editPost', function(postId) {
     check(postId,String);

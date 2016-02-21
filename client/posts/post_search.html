@@ -1,0 +1,24 @@
+<template name="searchPost">
+    <nav>
+        <div class="nav-warpper">
+                <div class="input-field">
+                <input type="search" id="search" placeholder="search" required>
+                <label for="search"><i class="mdi-action-search"></i></label>
+            </div>
+        </div>
+    </nav>
+
+    <div class="showRes" id="showRes">
+    {{#if getCount}}
+    {{#each getPost}}
+    	<div class="card-panel">
+    	<a href="{{pathFor route='singlePost'}}">{{title}}</a>
+    </div>
+    	{{/each}}
+    {{else}}
+    <div class="card-panel">
+    <h5 class="blue-text">sorry，没查询到内容</h5>
+    </div>
+    {{/if}}
+    </div>
+</template>

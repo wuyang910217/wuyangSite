@@ -11,3 +11,4 @@ Pages = new Meteor.Pagination(Posts, {
 	routerLayout: 'mainLayout',
 	sort: {publishedOn: -1},
 });
+

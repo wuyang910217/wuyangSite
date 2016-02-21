@@ -1,7 +1,9 @@
 <template name="notification">
     <div class="card-panel darken-blue">
         <section>
-            <p>{{commenterName}}在{{formatDate createdAt}}评论了你的文章</p>
+            <p><span class='blue-text'>{{commenterName}}</span>在
+            <span class='blue-text'>{{formatDate createdAt}}</span>评论了你的文章</p>
+            <p>文章标题是：<span class='blue-text'>{{title}}</span></p>
             <button data="{{_id}}" id="toPath" class="btn waves-effect waves-light">去看看</button>
         </section>
     </div>

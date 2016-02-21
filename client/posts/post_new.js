@@ -30,10 +30,12 @@ Template.newPost.events({
     event.preventDefault();
     template.error.set('');
     var category =getCategory();
+    var tag=$('input[name=tag]').val().trim();
+    var tagArray=getTag(tag);
     var post = {
       title: $('input[name=title]').val().trim(),
       category: category,
-      tag: $('input[name=tag]').val().trim(),
+      tag: tagArray,
       body: $('#textarea').val().trim(),
       // body: $('#summernote').summernote('code')
     };
@@ -44,6 +46,21 @@ Template.newPost.events({
             Router.go('singlePost',{_id: result._id});
       }
     });
-    document.getElementById("new-post").reset();
   }
 });
+
+function getTag(tag){
+  var tagArray = tag.split(' ');
+  for(var i =0,len=tagArray.length;i<len;i++){
+    if (tagArray[i]=="" || !tagArray[i]) {
+      tagArray.splice(i,1);
+      len--;
+      i--;
+    }
+  }
+  for (var i = tagArray.length - 1; i >= 0; i--) {
+    tagArray[i]=tagArray[i].slice(0,1).toUpperCase()+tagArray[i].slice(1);
+    }
+
+  return tagArray;
+  };

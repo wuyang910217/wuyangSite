@@ -4,7 +4,7 @@ Meteor.methods({
         check(postData, {
             title: String,
             category: String,
-            tag: String,
+            tag: Array,
             body: String
         });
         if (!postData.title) {
@@ -19,7 +19,7 @@ Meteor.methods({
         if (isTitleExist) {
             throw new Meteor.Error('exist-title', '已经有这样的标题了,换一个吧');
         };
-        if (!postData.tag) {
+        if (postData.tag.length<1) {
             throw new Meteor.Error('not-tag', '没有标签的文章不是好的程序员。。。');
         };
         if (!postData.body) {
@@ -31,7 +31,6 @@ Meteor.methods({
         postData.commentsCount = 0;
         postData.likesCount = 0;
         postData.unlikesCount = 0;
-        // postData.summary = postData.body.substring(0, 60).trim();
         if (user && user.roles === 'admin') {
             var postId = Posts.insert(postData);
             return {
@@ -45,7 +44,7 @@ Meteor.methods({
         check(postData, {
             title: String,
             category: String,
-            tag: String,
+            tag: Array,
             body: String
         });
         if (!postData.title) {
@@ -54,7 +53,7 @@ Meteor.methods({
         if (postData.title.length < 5) {
             throw new Meteor.Error('less-title', '这么少的标题你准备糊弄谁呢,至少5个字啊');
         };
-        if (!postData.tag) {
+        if (postData.tag.length<1) {
             throw new Meteor.Error('not-tag', '没有标签的文章不是好的程序员。。。');
         };
         if (!postData.body) {
@@ -173,20 +172,6 @@ Meteor.methods({
         }
     }
 });
-
- createCommentNotification=function(comment) {
-        var post = Posts.findOne(comment.postId);
-        if (comment.authorId !== post.authorId) {
-            Notifications.insert({
-                userId: post.authorId,
-                postId: post._id,
-                commentId: comment._id,
-                commenterName: comment.authorName,
-                createdAt: new Date(),
-                read: false
-            });
-        }
-    };
 
 Accounts.validateNewUser(function(user) {
     if (!user.username)

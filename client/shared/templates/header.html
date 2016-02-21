@@ -6,9 +6,9 @@
                     <a href="{{ pathFor route='root'}}" class="brand-logo">wuyang</a>
                     <a href="{{ pathFor route='root'}}" class="button-collapse" data-activates="mobile-show"><i class="large mdi-navigation-menu"></i></a>
                     <div class="center hide-on-med-and-down">
-                    <button class="btn-flat disabled deep-purple darken-2"></button>
                             <a href="{{ pathFor route='root'}}" class="btn-flat  white-text   waves-effect waves-red ">首页</a>
                             <a href="/posts" class="btn-flat white-text waves-effect waves-red">文章列表</a>
+                            <a href="#" class="btn-flat white-text waves-effect waves-red">分类</a>
                             <a href="{{ pathFor route='about'}}" class="btn-flat white-text waves-effect waves-red">关于我</a>
                             <div class="right">
                             {{#if  currentUser}}
@@ -32,6 +32,7 @@
                 <div class="side-nav" id="mobile-show">
                     <a href="{{ pathFor route='root'}}" class="btn-flat  waves-effect waves-red ">首页</a>
                     <a href="/posts" class="btn-flat waves-effect waves-red ">文章列表</a>
+                    <a href="#" class="btn-flat waves-effect waves-red ">分类</a>
                     <a href="{{ pathFor route='about'}}" class="btn-flat  waves-effect waves-red ">关于我</a> 
                     {{#if currentUser}}
                     {{#if isAdmin currentUser}}
