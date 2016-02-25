@@ -23,7 +23,7 @@
          {{/if}}
     </div>
         {{#each comments}}
-    <div class="card-panel teal darken-4">
+    <div class="card-panel  grey darken-3">
     <p class="blue-text">
     {{authorName}}&nbsp;&nbsp;&nbsp;{{formatDate createdAt}} 
     {{#if isAdmin currentUser}}
@@ -31,9 +31,7 @@
       {{/if}}
     </p>
      <div class="divider"></div>
-     <div class="card-panel teal darken-4">
      <p class="white-text">{{#markdown}}{{{content}}}{{/markdown}}</p>
-</div>
     </div>
         {{/each}}
 </template>

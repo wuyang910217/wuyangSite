@@ -17,7 +17,7 @@ Meteor.publish('searchPost',function(searchText){
         return [];
     }else{
         var regExp =new RegExp(searchText,"i");
-    return Posts.find({title: regExp},{sort: {publishedOn: -1}});
+    return Posts.find({title: regExp},{sort: {publishedOn: -1},limit: 5});
     }
 })
 

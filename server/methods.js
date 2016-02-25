@@ -19,7 +19,7 @@ Meteor.methods({
         if (isTitleExist) {
             throw new Meteor.Error('exist-title', '已经有这样的标题了,换一个吧');
         };
-        if (postData.tag.length<1) {
+        if (postData.tag.length < 1) {
             throw new Meteor.Error('not-tag', '没有标签的文章不是好的程序员。。。');
         };
         if (!postData.body) {
@@ -53,7 +53,7 @@ Meteor.methods({
         if (postData.title.length < 5) {
             throw new Meteor.Error('less-title', '这么少的标题你准备糊弄谁呢,至少5个字啊');
         };
-        if (postData.tag.length<1) {
+        if (postData.tag.length < 1) {
             throw new Meteor.Error('not-tag', '没有标签的文章不是好的程序员。。。');
         };
         if (!postData.body) {
@@ -141,7 +141,7 @@ Meteor.methods({
                 _id: commentId
             });
             Notifications.remove({
-               commentId: commentId
+                commentId: commentId
             });
         }
     },
