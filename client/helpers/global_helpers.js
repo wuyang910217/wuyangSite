@@ -6,7 +6,7 @@ Template.registerHelper('isAdmin', function(user) {
 Template.registerHelper('noPost', function(){
     if (Posts.find().count()===0) {
       return  true;
-  } 
+  }
 });
 
 Template.registerHelper('allPosts', function(){
@@ -25,7 +25,7 @@ Template.registerHelper('today', function() {
 });
 
 Template.registerHelper('currentTime', function() {
-    var createTime = Math.round(new Date(Date.UTC(2016, 0, 1, 0, 0, 0)).getTime() / 1000);
+    var createTime = Math.round(new Date(Date.UTC(2016, 1, 28, 0, 0, 0)).getTime() / 1000);
     var timestamp = Math.round((new Date().getTime() + 8 * 3600 * 1000) / 1000);
     current = secondToDate((timestamp - createTime));
     if (current[0] != '0') {
