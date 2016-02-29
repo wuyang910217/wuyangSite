@@ -21,6 +21,7 @@ sacha:spin
 accounts-password
 reactive-var
 check
-markdown
 alethes:pages
 lookback:emoji
+highlight.js
+perak:markdown

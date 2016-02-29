@@ -23,7 +23,7 @@ Template.editPost.helpers({
     return Template.instance().error.get();
   }
 });
- 
+
  function getCategory(){
   var categories =$("input[name=category]");
     for (i=0;i<categories.length;i++) {
