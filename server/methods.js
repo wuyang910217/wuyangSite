@@ -33,6 +33,7 @@ Meteor.methods({
         postData.unlikesCount = 0;
         if (user && user.roles === 'admin') {
             var postId = Posts.insert(postData);
+            createPostTag(postId);
             return {
                 _id: postId
             };
@@ -64,6 +65,7 @@ Meteor.methods({
         postData.publishedOn = new Date().getTime();
         // postData.summary = postData.body.substring(0, 60).trim();
         if (user && user.roles === 'admin') {
+          editPostTag(postId,postData.tag);
             Posts.update(postId, {
                 $set: postData
             });
@@ -86,6 +88,7 @@ Meteor.methods({
             Notifications.remove({
                 postId: PostId
             });
+            deletePostTag(post);
         }
     },
 

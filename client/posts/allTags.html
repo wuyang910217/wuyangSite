@@ -1,0 +1,7 @@
+<template name="allTags">
+  <div class="centainer">
+    {{#each allTags}}
+    <a href="{{pathFor route="tagPost"}}"><span class="chip {{color}} white-text">{{tagName}}<sup>{{count}}</sup></span></a>
+    {{/each}}
+  </div>
+</template>

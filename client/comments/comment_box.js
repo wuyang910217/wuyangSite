@@ -2,6 +2,7 @@ Template.comment.onCreated(function () {
   this.error = new ReactiveVar('');
   this.postId = new ReactiveVar(Template.instance().data._id);
   Meteor.subscribe('post-comment',this.postId.curValue);
+  // Meteor.subscribe('emojis');
 });
 
 Template.comment.helpers({

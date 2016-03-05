@@ -1,32 +1,36 @@
 <template name="homePage">
 {{> banner}}
-<div class="container">
 {{#if noPost}}
 <div class="center">
   <h4>暂时还没有文章。</h4>
 </div>
 {{else}}
-<div class="card-panel">
-            <div class="row ">
-                <div class="col s12 l12">
-                    <div class="card teal">
-                        <div class="card-content">
-                            <h5>标题： <span class="white-text">{{title}}</span></h5>
-                            <div class="card-panel teal darken+4">
-                                <p>作者： <span class="white-text">{{authorName}}</span></p>
-                                <div class="divider"></div>
-                                <p>标签： <span class="white-text">{{tag}}</span></p>
-                                <div class="divider"></div>
-                                <p>日期： <span class="white-text">{{formatDate publishedOn}}</span></p>
-                              <!--   <div class="divider"></div>
-                                <p> 内容： <span class="white-text">{{#markdown}}{{summary}}{{/markdown}}</span></p> -->
-                            </div>
-                            <a href="{{pathFor route="singlePost"}}" class="btn red" id="post-show">查看</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{/if}}
-        </div>
+<div class="card-panel teal lighten-3">
+<div class="row">
+  <div class="col s12 m12 l8">
+  <h5 class="center-align purple-text">最新发布的文章</h5>
+    <div class="card-panel darken-3">
+      <h5>标题： <span class="blue-text">{{title}}</span></h5>
+      <div class="divider red"></div>
+        <p class="col s12 m6 l3">
+          作者： <span class="blue-text">{{authorName}}</span>
+        </p>
+        <p class="col s12 m6 l3">
+          标签： <span class="blue-text">{{tag}}</span>
+        </p>
+        <p class="col s12 m12 l6">
+          评论数：<span class="blue-text">{{commentsCount}}</span>
+          &nbsp;&nbsp;
+          发布日期： <span class="blue-text">{{formatDate publishedOn}}</span>
+        </p>
+      <a href="{{pathFor route="singlePost"}}" class="btn waves-effect waves-light">查看</a>
+    </div>
+  </div>
+  <div class="col s12 m12 l4">
+    <h5 class="center-align purple-text">标签云</h5>
+    {{> allTags}}
+  </div>
+</div>
+</div>
+  {{/if}}
 </template>

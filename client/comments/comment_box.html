@@ -7,7 +7,11 @@
 </div>
     <div class="card-panel indigo darken-3">
         {{#if currentUser}}
-        <h5 class="white-text">快来评论吧 <small class="blue-text"> 试试markdown格式(注意：换行请敲两次空格)</small></h5>
+        <h5 class="white-text">快来评论吧 <small class="blue-text">
+          试试markdown格式(也支持emoji表情啦，格式见
+          <a href="http://www.emoji-cheat-sheet.com/">
+            <span class="white-text">Emoji</span></a>)</small>
+        </h5>
         <form id="comment">
             <div class="input-field">
                 <textarea id="textarea" placeholder="在这输入内容" class="white materialize-textarea"></textarea>
@@ -19,19 +23,23 @@
         </form>
         <h5 class="red-text center-align">{{error}}</h5>
          {{else}}
-        <h5 class="white-text">想说两句，请先<a href="{{pathFor route='login'}}" id="btn-login" class="btn red">登陆</a>吧</h5>
+        <h5 class="white-text">想说两句，请先<a href="{{pathFor route='login'}}" id="btn-login" class="btn red">登录</a>吧</h5>
          {{/if}}
     </div>
-        {{#each comments}}
-    <div class="card-panel  grey darken-3">
-    <p class="blue-text">
-    {{authorName}}&nbsp;&nbsp;&nbsp;{{formatDate createdAt}} 
-    {{#if isAdmin currentUser}}
-      <button data="{{_id}}" id="delete-comment" class="btn white-text red waves-effect waves-light">删除评论</button>
-      {{/if}}
-    </p>
-     <div class="divider"></div>
-     <p class="white-text">{{#markdown}}{{{content}}}{{/markdown}}</p>
-    </div>
-        {{/each}}
+    <div class="row">
+            {{#each comments}}
+            <div class="col s12 m12 l6">
+            <div class="card-panel grey darken-3" style="height: 200px;">
+            <p class="blue-text">
+            {{authorName}}&nbsp;&nbsp;&nbsp;{{formatDate createdAt}}
+            {{#if isAdmin currentUser}}
+              <button data="{{_id}}" id="delete-comment" class="btn white-text red waves-effect waves-light">删除评论</button>
+              {{/if}}
+            </p>
+             <div class="divider"></div>
+             <p class="white-text">{{#markdown}}{{#emoji}}{{{content}}}{{/emoji}}{{/markdown}}</p>
+            </div>
+          </div>
+            {{/each}}
+          </div>
 </template>

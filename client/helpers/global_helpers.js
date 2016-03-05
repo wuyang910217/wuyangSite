@@ -15,7 +15,7 @@ Template.registerHelper('allPosts', function(){
 
 Template.registerHelper('formatDate', function(d) {
     var date = new Date(d);
-    return date.toLocaleString();
+    return date.toLocaleDateString();
 });
 
 Template.registerHelper('today', function() {
@@ -23,6 +23,13 @@ Template.registerHelper('today', function() {
     date = date.toLocaleDateString() + " 星期" + ('天一二三四五六'.charAt(date.getDay()));
     return date;
 });
+
+Template.registerHelper('color', function() {
+  var colors=['amber','red','purple','pink','indigo','cyan','blue','teal','green','lime','yellow','orange','brown'];
+  return colors[Math.floor(Math.random()*colors.length)];
+});
+
+
 
 Template.registerHelper('currentTime', function() {
     var createTime = Math.round(new Date(Date.UTC(2016, 1, 28, 0, 0, 0)).getTime() / 1000);

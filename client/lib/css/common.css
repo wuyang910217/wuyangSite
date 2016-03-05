@@ -10,8 +10,46 @@ main {
 
 code {
 	background-color: rgba(0,0,0,0.1);
+	/*color: #ff0000;*/
 	border-radius: 3px;
 	padding-left: 0.3em;
 	padding-right: 0.3em;
 	font-size: 1em;
+}
+
+img.emoji {
+  height: 1.4em;
+  width: 1.4em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
+}
+
+.brand-logo {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+/*图片居中*/
+/*p img {
+	clear: both;
+  display: block;
+  margin: 0px auto;
+}*/
+
+.chip {
+margin: 5px;
+}
+
+.chip:hover {
+	transform: scale(1.2);
+}
+
+p strong {
+  font-weight: bold;
+}
+
+/*无序列表*/
+li.md {
+	list-style-type: disc;
+	margin-left: 20px;
 }

@@ -1,0 +1,18 @@
+<template name="tagPost">
+    {{#if noTag}}
+      {{> notFound}}
+    {{else}}
+    <div class="container">
+      <h5 class="blue-text center-align">此标签下，目前共有{{postCount}}篇文章</h5>
+    {{#each allTagPost}}
+    <div class="card-panel hoverable">
+      <a href="{{pathFor route="singlePost"}}"><h5>{{title}}</h5></a>
+      <p>评论数：<span class="blue-text">{{commentsCount}}</span>
+          &nbsp;&nbsp;
+          发布日期： <span class="blue-text">{{formatDate publishedOn}}</span>
+      </p>
+    </div>
+    {{/each}}
+  </div>
+    {{/if}}
+</template>

@@ -11,7 +11,11 @@ Template.editPost.onRendered(function() {
   //   codemirror: {mode: 'javascript'}
   // });
   $('input[name=title]').val(post.title);
-  $('input[name=tag]').val(post.tag.toString());
+  var tagName ="";
+  for (var i = 0; i < post.tag.length; i++) {
+    tagName = tagName+post.tag[i]+" ";
+  }
+  $('input[name=tag]').val(tagName);
 
   $('#textarea').val(post.body);
   $('#textarea').trigger('autoresize');

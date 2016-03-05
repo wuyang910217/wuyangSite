@@ -1,23 +1,26 @@
 <template name="singlePost">
-    <div class="container">
         <div class="card-panel indigo darken-2">
             <h5 class="center-align white-text">{{title}}</h5>
             <div class="divider black"></div>
-                <section >
-                <p class="right-align">
-                    <span class="chip purple white-text">{{tag}}</span>
-                    作者：<span class="white-text">{{authorName}}</span>
-                   发布于：<span class="white-text">{{formatDate publishedOn}}</span>
-                </p>
-                </section>
             <section>
-                <div class="card-panel grey lighten-2">
-                {{#markdown}}{{{body}}}{{/markdown}}
+              <p class="right-align">
+                作者：<span class="white-text">{{authorName}}</span>
+               发布于：<span class="white-text">{{formatDate publishedOn}}</span>
+              </p>
+            </section>
+            <section>
+                <div class="col s12 l12">
+                  <div class="card-panel">
+                  {{#markdown}}{{{body}}}{{/markdown}}
+                  </div>
                 </div>
             </section>
             <section>
                 {{> comment}}
             </section>
         </div>
-    </div>
+        <!-- 多说评论框 -->
+        <!-- <div class="ds-thread" data-thread-key=
+        "{{_id}}" data-title="{{title}}" data-url="http://wangjuntao.com/posts/{{_id}}">
+      </div> -->
 </template>

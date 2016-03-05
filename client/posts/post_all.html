@@ -13,19 +13,28 @@
                         <i class="mdi-editor-border-all circle purple"></i>
                         <h5>{{title}}</h5>
                         <div class="divider red"></div>
-                         <section >
-                <p class="left-align">
-                    <span class="black-text">作者：</span>{{authorName}}
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="black-text">标签：</span>{{tag}}
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="black-text">评论数：</span>{{commentsCount}}
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                     <span class="black-text">点赞：</span>{{likesCount}}<span class="black-text">个</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="black-text">发布于：</span>{{formatDate publishedOn}}
-                </p>
-                </section>
+                         <div class="row">
+                           <div class="col s12 m6 l3">
+                             <p>
+                                 <span class="black-text">作者：</span>{{authorName}}
+                             </p>
+                           </div>
+                           <div class="col s12 m6 l3">
+                             <p>
+                              <span class="black-text">标签：</span>{{tag}}
+                              </p>
+                             </div>
+                           <div class="col s12 m6 l3">
+                             <p>
+                                 <span class="black-text">评论数：</span>{{commentsCount}}
+                                 &nbsp;&nbsp;
+                                  <span class="black-text">点赞：</span>{{likesCount}}<span class="black-text">个</span>
+                             </p>
+                             </div>
+                            <div class="col s12 m6 l3">
+                              <span class="black-text">发布于：</span>{{formatDate publishedOn}}
+                               </div>
+                         </div>
                     </li>
                     <li class="collection-header center">
                 <a href="{{pathFor route="singlePost"}}" class="btn red waves-effect waves-light white-text">查看</a>

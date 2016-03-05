@@ -29,7 +29,13 @@ Meteor.publish('editPost', function(postId) {
     } else {
         return [];
     }
-    
+
+});
+
+//查询包含tagName标签的所有文章
+Meteor.publish('tagPosts',function(tagName){
+  check(tagName,String);
+  return Posts.find({tag: tagName});
 });
 
 Meteor.publish('post-comment',function(postId){
@@ -40,6 +46,18 @@ Meteor.publish('post-comment',function(postId){
 Meteor.publish('notifications', function(){
     return Notifications.find({userId: this.userId,read: false});
 });
+
+Meteor.publish('tags', function(){
+    return Tags.find({},{sort: {createdAt: -1}});
+});
+
+// Meteor.publish('tagPost',function(tagName){
+//   return Tags.find({tagName: tagName});
+// });
+
+// Meteor.publish('emojis',function(){
+//   return Emojis.find();
+// });
 
 Meteor.publish(null, function() {
     if (this.userId) {
